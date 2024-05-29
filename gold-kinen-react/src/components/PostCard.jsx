@@ -11,7 +11,7 @@ const PostCard = ({ post, user, comments,index }) => {
   }
 
   return (
-    <motion.div className="p-6 mb-11 bg-white rounded-lg shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]"
+    <motion.div className="p-6 mb-16 bg-white rounded-lg shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]"
     initial={{ y: 10, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.4, delay: index * 0.5 }}>
