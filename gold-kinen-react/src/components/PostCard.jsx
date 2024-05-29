@@ -17,7 +17,9 @@ const PostCard = ({ post, user, comments,index }) => {
     transition={{ duration: 0.4, delay: index * 0.5 }}>
       <h3 className="text-xl font-bold mb-2">{post.title}</h3>
       <p className="text-gray-700">{post.body}</p>
-      <p className="text-sm font-bold mt-2 bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 w-20% text-transparent bg-clip-text">By: {user.name}</p>
+      <div className='w-[250px]'>
+      <p className="text-sm font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-700 ">By: {user.name}</p>
+      </div>
       {/* <Button onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? 'Hide Comments' : 'Show Comments'}
       </Button> */}
