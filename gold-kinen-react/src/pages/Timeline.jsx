@@ -16,11 +16,11 @@ const Timeline = () => {
   const getCommentsByPostId = (postId) => comments.filter(comment => comment.postId === postId);
 
   return (
-    <div className='bg-black w-full'>
-    <div className='bg-black w-full'>
+    <div className='bg-white w-full '>
+    <div className=' w-full '>
       <motion.h1 initial={{ y: 0, opacity: 0 }}
         animate={{ y: 10, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.4 }} className='text-white text-center'>TimeLine</motion.h1>
+        transition={{ duration: 0.3, delay: 0.4 }} className=' gradient-text font-bold text-center'>TimeLine</motion.h1>
     </div>
     <div className="container mx-auto mt-4 bg-white p-6">
       {posts.sort((a, b) => b.id - a.id).map((post,index) => (
