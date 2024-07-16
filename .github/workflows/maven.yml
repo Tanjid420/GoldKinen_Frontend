@@ -56,10 +56,10 @@ jobs:
     #     restore-keys: ${{ runner.os }}-maven
 
     - name: Install Maven dependencies
-      run: mvn install -f GoldKinen_Frontend/Goldkinen_Regression/goldkinendemo/pom.xml
+      run: mvn install -f Goldkinen_Regression/goldkinendemo/pom.xml
 
     - name: Run Selenium tests
-      run: mvn test -f GoldKinen_Frontend/Goldkinen_Regression/goldkinendemo/pom.xml
+      run: mvn test -f Goldkinen_Regression/goldkinendemo/pom.xml
 
     # If you want to generate a test report
     # - name: Archive test results
