@@ -51,11 +51,15 @@ jobs:
 
     - name: Set up ChromeDriver
       run: |
-        curl -O curl -O https://chromedriver.storage.googleapis.com/126.0.6478.126/chromedriver_win32.zip
-        unzip chromedriver_win32.zip -d G:/ChromeDriver/
-      env:
-        # CHROMEDRIVER_VERSION: '126.0.6478.126'
-        CHROME_DRIVER_PATH: 'G:/ChromeDriver/chromedriver.exe'
+        $version = "126.0.6478.126"
+        Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/$version/chromedriver_win32.zip" -OutFile "chromedriver.zip"
+        tar -xf chromedriver.zip
+        mkdir -p G:/ChromeDriver/
+        mv chromedriver.exe G:/ChromeDriver/
+      shell: pwsh
+
+    - name: Set environment variable for ChromeDriver
+      run: echo "CHROME_DRIVER_PATH=G:/ChromeDriver/chromedriver.exe" >> $GITHUB_ENV  
 
     - name: Install Maven dependencies
       run: mvn install -f ./Goldkinen_Regression/goldkinendemo/pom.xml
