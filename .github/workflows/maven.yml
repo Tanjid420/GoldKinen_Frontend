@@ -60,11 +60,10 @@ jobs:
     - name: Set up ChromeDriver path
       run: echo "CHROMEWEBDRIVER=C:/ProgramData/chocolatey/bin/chromedriver.exe" >> $GITHUB_ENV
 
-      
 
     - name: Install Maven dependencies
       run: mvn install -f Goldkinen_Regression/goldkinendemo/pom.xml
-
+    
     - name: Run Selenium tests
       run: mvn test -f Goldkinen_Regression/goldkinendemo/pom.xml
       env:
