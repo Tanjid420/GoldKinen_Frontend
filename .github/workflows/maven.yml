@@ -17,7 +17,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -50,7 +50,10 @@ jobs:
 
 
     - name: Set up ChromeDriver
-      uses: nanasess/setup-chromedriver@v2
+      id: setup-chromedriver
+      uses: nanasess/setup-chromedriver@v1
+      with:
+        chromedriver-version: latest
  
 
 
@@ -58,8 +61,8 @@ jobs:
     - name: Find installed path
       id: find-path
       run: |
-        TOOL_PATH=$(which chromedriver)
-        echo "TOOL_PATH=$TOOL_PATH" >> $GITHUB_ENV
+        $toolPath = (Get-Command chromedriver).Path
+        echo "TOOL_PATH=$toolPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
     
     
@@ -70,7 +73,7 @@ jobs:
     - name: Install Maven dependencies
       run: mvn install -f ./Goldkinen_Regression/goldkinendemo/pom.xml
       env: 
-        CHROME_DRIVER_PATH: '/usr/local/bin'
+        CHROME_DRIVER_PATH: TOOL_PATH
       
 
     - name: Run Java tests
