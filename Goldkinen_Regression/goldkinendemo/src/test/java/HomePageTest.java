@@ -10,7 +10,7 @@ public class HomePageTest {
     public void setup() {
         // Path to your WebDriver executable on Windows
         String chromeDriverPath = System.getenv("CHROME_DRIVER_PATH");
-        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+        System.setProperty("webdriver.chrome.driver", "G:/ChromeDriver/chromedriver-win64/chromedriver.exe");
         driver = new ChromeDriver();
        
     }
