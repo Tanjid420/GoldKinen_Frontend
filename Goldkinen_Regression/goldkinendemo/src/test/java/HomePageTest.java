@@ -8,8 +8,12 @@ public class HomePageTest {
        WebDriver driver;
          @BeforeClass
     public void setup() {
-        // Path to your WebDriver executable on Windows
+        
+        // Set the path to the chromedriver executable
         String chromeDriverPath = System.getenv("CHROME_DRIVER_PATH");
+        if (chromeDriverPath == null || chromeDriverPath.isEmpty()) {
+            throw new IllegalStateException("CHROME_DRIVER_PATH environment variable is not set or empty");
+        }
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         driver = new ChromeDriver();
        
