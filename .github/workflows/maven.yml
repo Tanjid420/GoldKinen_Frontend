@@ -50,22 +50,19 @@ jobs:
 
 
     - name: Set up ChromeDriver
-      run: |
-        $version = "126.0.6478.126"
-        Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/$version/chromedriver_win32.zip" -OutFile "chromedriver.zip"
-        tar -xf chromedriver.zip
-        mkdir -p G:/ChromeDriver/
-        mv chromedriver.exe G:/ChromeDriver/
-      shell: pwsh
+      uses: nanasess/setup-chromedriver@v1
+      with:
+        chromedriver-version: latest
 
-    - name: Set environment variable for ChromeDriver
-      run: echo "CHROME_DRIVER_PATH=G:/ChromeDriver/chromedriver.exe" >> $GITHUB_ENV  
+      
 
     - name: Install Maven dependencies
       run: mvn install -f ./Goldkinen_Regression/goldkinendemo/pom.xml
 
     - name: Run Java tests
       run: mvn test -f ./Goldkinen_Regression/goldkinendemo/pom.xml
+      env:
+        CHROME_DRIVER_PATH: ${{ steps.set-up-chromedriver.outputs.chrome-path }}
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
