@@ -55,10 +55,11 @@ jobs:
         chromedriver-version: latest
 
     - name: Set up environment variable
-      run: echo "NAME=arnob" >> $GITHUB_ENV
+      run: |
+        echo "NAME=arnob" >> $GITHUB_ENV
+        echo $NAME 
 
-    - name: Print env variable
-      run: echo $NAME
+    
     
     
       # env:
