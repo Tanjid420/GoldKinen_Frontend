@@ -48,6 +48,15 @@ jobs:
     # - name: Build with Maven
     #   run: mvn -B package --file pom.xml
 
+
+    - name: Set up ChromeDriver
+      run: |
+        curl -O https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/win64/chromedriver-win64.zip
+        unzip chromedriver_win64.zip -d G:/ChromeDriver/
+      env:
+        # CHROMEDRIVER_VERSION: '126.0.6478.126'
+        CHROME_DRIVER_PATH: 'G:/ChromeDriver/chromedriver.exe'
+
     - name: Install Maven dependencies
       run: mvn install -f ./Goldkinen_Regression/goldkinendemo/pom.xml
 
