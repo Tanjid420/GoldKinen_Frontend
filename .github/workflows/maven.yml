@@ -54,11 +54,12 @@ jobs:
       with:
         chromedriver-version: latest
 
-    - name: Set up environment variable
-      run: echo arnob
-      # run: |
-      #   echo "NAME=arnob" >> $GITHUB_ENV
-      #   echo $NAME 
+    
+    - name: Find installed path
+      id: find-path
+      run: |
+        TOOL_PATH=$(which chromedriver)
+        echo "TOOL_PATH=$TOOL_PATH" >> $GITHUB_ENV
 
     
     
