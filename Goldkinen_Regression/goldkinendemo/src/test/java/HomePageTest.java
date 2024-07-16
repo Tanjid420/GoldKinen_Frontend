@@ -23,7 +23,9 @@ public class HomePageTest {
     @Test
     public void testHomePageLoad(){
 
-        driver.get("http://localhost:5173");
+        String url = "http://localhost:5173";
+        driver.get(url);
+        System.out.println("Navigated to URL: " + url);
     }
         
     
