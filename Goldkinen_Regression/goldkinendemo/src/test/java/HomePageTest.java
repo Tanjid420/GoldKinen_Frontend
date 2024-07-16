@@ -9,7 +9,8 @@ public class HomePageTest {
          @BeforeClass
     public void setup() {
         // Path to your WebDriver executable on Windows
-        System.setProperty("webdriver.chrome.driver", "G:/ChromeDriver/chromedriver-win64/chromedriver.exe");
+        String chromeDriverPath = System.getenv("CHROME_DRIVER_PATH");
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         driver = new ChromeDriver();
        
     }
@@ -19,7 +20,7 @@ public class HomePageTest {
 
         String url = "http://localhost:5173";
         driver.get(url);
-        System.out.println("Navigated to URL: " + url);
+        System.out.println("Navigated to: " + driver.getCurrentUrl());
     }
         
     
