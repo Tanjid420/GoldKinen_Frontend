@@ -69,7 +69,7 @@ jobs:
     - name: Install Maven dependencies
       run: mvn install -f ./Goldkinen_Regression/goldkinendemo/pom.xml
       env: 
-        CHROME_DRIVER_PATH: ${{ steps.set-up-chromedriver.outputs.chrome-path }}
+        CHROME_DRIVER_PATH: ${{ steps.setup-chromedriver.outputs.chrome-path }}
       
 
     - name: Run Java tests
