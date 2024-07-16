@@ -55,8 +55,14 @@ jobs:
         chromedriver-version: latest
 
     - name: Set up environment variable
-      env:
-        CHROME_DRIVER_PATH: ${{ steps.set-up-chromedriver.outputs.chrome-path }}
+      run: echo "NAME=arnob" >> $GITHUB_ENV
+
+    - name: Print env variable
+      run: echo $NAME
+    
+    
+      # env:
+      #   CHROME_DRIVER_PATH: ${{ steps.set-up-chromedriver.outputs.chrome-path }}
         
     - name: Install Maven dependencies
       run: mvn install -f ./Goldkinen_Regression/goldkinendemo/pom.xml
