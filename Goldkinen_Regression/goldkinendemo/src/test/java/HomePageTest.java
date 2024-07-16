@@ -9,8 +9,15 @@ public class HomePageTest {
          @BeforeClass
     public void setup() {
         // Path to your WebDriver executable on Windows
-        System.setProperty("webdriver.chrome.driver", "G:/ChromeDriver/chromedriver-win64/chromedriver.exe");
-        driver = new ChromeDriver();
+        String chromeDriverPath = System.getenv("CHROMEWEBDRIVER");
+        if (chromeDriverPath != null) {
+            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+        } else {
+            // Fallback to local path or throw an exception
+            throw new IllegalStateException("ChromeDriver path is not set in the environment variables");
+        }
+        
+         driver = new ChromeDriver();
     }
 
     @Test
