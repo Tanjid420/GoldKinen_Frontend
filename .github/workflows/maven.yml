@@ -55,13 +55,13 @@ jobs:
 
 
     
-    - name: Find installed path
-      id: find-path
-      run: |
-        $chromeDriverPath = (Get-Command chromedriver).Path
-        echo "CHROMEDRIVER_PATH=$chromeDriverPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+    - name: Set ChromeDriver path
+      run: echo "CHROMEDRIVER_PATH=C:\ProgramData\chocolatey\bin\chromedriver.exe" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
-    
+    - name: Verify ChromeDriver version
+      run: |
+        echo ChromeDriver path: $env:CHROMEDRIVER_PATH
+        $env:CHROMEDRIVER_PATH --version
     
     
       # env:
