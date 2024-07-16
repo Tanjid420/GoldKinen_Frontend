@@ -54,11 +54,11 @@ jobs:
     #     key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
     #     restore-keys: ${{ runner.os }}-maven
 
-    # - name: Download ChromeDriver
-    #   run: choco install chromedriver --version 114.0.5735.90
+    - name: Download ChromeDriver
+      run: choco install chromedriver --version 114.0.5735.90
 
     - name: Set up ChromeDriver path
-      run: echo "CHROMEWEBDRIVER=G:/ChromeDriver/chromedriver-win64/chromedriver.exe" >> $GITHUB_ENV
+      run: echo "CHROMEWEBDRIVER=C:/ProgramData/chocolatey/bin/chromedriver.exe" >> $GITHUB_ENV
 
       
 
