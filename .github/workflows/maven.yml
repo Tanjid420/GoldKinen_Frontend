@@ -49,10 +49,14 @@ jobs:
     #   run: mvn -B package --file pom.xml
 
     - name: Install Maven dependencies
-      run: mvn install
+      run: |
+        cd Goldkinen_Regression/goldkinendemo/pom.xml
+        mvn install
 
     - name: Run Java tests
-      run: mvn test  
+      run: |
+        cd Goldkinen_Regression/goldkinendemo/pom.xml
+        mvn test  
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
