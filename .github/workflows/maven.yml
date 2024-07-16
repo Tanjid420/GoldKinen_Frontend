@@ -28,7 +28,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20.10.1' # Adjust the Node.js version if necessary
+        node-version: '20.10.0' # Adjust the Node.js version if necessary
 
     - name: Install JavaScript dependencies
       run: npm install
