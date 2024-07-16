@@ -6,38 +6,68 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build:
-
-    runs-on: [windows-latest]
-    # strategy:
-    #   matrix:
-    #     os: [ubuntu-latest, windows-latest, macos-latest]
-    #     java-version: ['21.0.3']
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        java-version: [21.0.3]
 
     steps:
-    - name: Checkout code
-    - uses: actions/checkout@v4
-    - name: Set up JDK 21.0.3
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Set up Node.js for building the JavaScript project
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.10.0' # Adjust the Node.js version if necessary
+
+    - name: Install JavaScript dependencies
+      run: npm install
+      working-directory: ./gold-kinen-react
+
+    - name: Build JavaScript project
+      run: npm run build # Adjust if you have other build scripts
+      working-directory: ./gold-kinen-react
+
+    # Set up Java for running Selenium tests
+    - name: Set up Java
       uses: actions/setup-java@v3
       with:
-        java-version: '21.0.3'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-      
-    # - name: Run tests
-    #   run: mvn test
-    
+        java-version: ${{ matrix.java-version }}
+        distribution: 'zulu'
+
+    - name: Cache Maven packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-maven
+
+    - name: Install Maven dependencies
+      run: mvn install -f Goldkinen_Regression/goldkinendemo/pom.xml
+
+    - name: Run Selenium tests
+      run: mvn test -f Goldkinen_Regression/goldkinendemo/pom.xml
+
+    # If you want to generate a test report
+    - name: Archive test results
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: selenium-tests/target/surefire-reports
+
 
     
       
