@@ -46,13 +46,14 @@ jobs:
       with:
         java-version: ${{ matrix.java-version }}
         distribution: 'zulu'
+        cache: maven
 
-    - name: Cache Maven packages
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-maven
+    # - name: Cache Maven packages
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: ~/.m2/repository
+    #     key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+    #     restore-keys: ${{ runner.os }}-maven
 
     - name: Install Maven dependencies
       run: mvn install -f Goldkinen_Regression/goldkinendemo/pom.xml
@@ -61,12 +62,12 @@ jobs:
       run: mvn test -f Goldkinen_Regression/goldkinendemo/pom.xml
 
     # If you want to generate a test report
-    - name: Archive test results
-      if: failure()
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: selenium-tests/target/surefire-reports
+    # - name: Archive test results
+    #   if: failure()
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: test-results
+    #     path: selenium-tests/target/surefire-reports
 
 
     
