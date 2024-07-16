@@ -16,15 +16,13 @@ on:
 
 jobs:
   build:
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        java-version: [21.0.3]
+    runs-on: windows-latest
+    
 
     steps:
+    - uses: actions/checkout@v4
     - name: Checkout repository
-      uses: actions/checkout@v3
+      
 
     # Set up Node.js for building the JavaScript project
     - name: Set up Node.js
@@ -44,9 +42,11 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v3
       with:
-        java-version: ${{ matrix.java-version }}
+        java-version: '21.0.3'
         distribution: 'temurin'
         cache: maven
+
+        
 
     # - name: Cache Maven packages
     #   uses: actions/cache@v3
