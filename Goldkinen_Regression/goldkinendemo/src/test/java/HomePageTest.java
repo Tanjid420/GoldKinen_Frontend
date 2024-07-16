@@ -23,7 +23,7 @@ public class HomePageTest {
     @Test
     public void testHomePageLoad(){
 
-        driver.get("http://localhost:5173/#_");
+        driver.get("http://localhost:5173");
     }
         
     
