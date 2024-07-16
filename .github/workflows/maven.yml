@@ -51,7 +51,7 @@ jobs:
 
     - name: Set up ChromeDriver
       run: |
-        curl -O https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/win64/chromedriver-win32.zip
+        curl -O curl -O https://chromedriver.storage.googleapis.com/126.0.6478.126/chromedriver_win32.zip
         unzip chromedriver_win32.zip -d G:/ChromeDriver/
       env:
         # CHROMEDRIVER_VERSION: '126.0.6478.126'
