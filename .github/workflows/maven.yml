@@ -58,7 +58,7 @@ jobs:
       run: choco install chromedriver --version 126.0.6478.1263
 
     - name: Set up ChromeDriver path
-      run: echo "CHROMEWEBDRIVER=C:/ProgramData/chocolatey/bin/chromedriver.exe" >> $GITHUB_ENV
+      run: echo "CHROMEWEBDRIVER=C:/ProgramData/chocolatey/bin/chromedriver-win64/chromedriver.exe" >> $GITHUB_ENV
 
 
     - name: Install Maven dependencies
