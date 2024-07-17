@@ -85,15 +85,11 @@ jobs:
         CHROME_DRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
 
 
-    - name: Generate Allure Report
-      run: mvn allure:report
-
-
-    - name: Upload Allure Report
+    - name: Upload Surefire Reports
       uses: actions/upload-artifact@v2
       with:
-        name: allure-report
-        path: target/site/allure-maven/  
+        name: surefire-reports
+        path: target/surefire-reports/  
       
         
 
