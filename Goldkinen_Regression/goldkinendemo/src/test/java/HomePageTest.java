@@ -48,23 +48,23 @@ public class HomePageTest {
 
         test = extent.createTest("Navigating");
 
-        String url_1 = "https://www.youtube.com/";
-        String url_2 = "http://localhost:5173/";
+        String youtube = "https://www.youtube.com/";
+        String goldkinen = "http://localhost:5173/";
         try {
-            driver.get(url_1);
+            driver.get(youtube);
             
             // Optionally, you can print the current URL for verification
             System.out.println("Navigated to: " + driver.getCurrentUrl());
-            test.pass("Navigated to: " + url_1);
+            test.pass("Navigated to: " + youtube);
         } catch (Exception e) {
             System.out.println("Failed to navigate to URL: " + e.getMessage());
             test.fail("Failed to navigate to URL: " + e.getMessage());
         }
 
         try {
-            driver.get(url_2);
+            driver.get(goldkinen);
             System.out.println("Navigated to: " + driver.getCurrentUrl());
-            test.pass("Navigated to: " + url_2);
+            test.pass("Navigated to: " + goldkinen);
         } catch (Exception e) {
             System.out.println("Failed to navigate to URL_2: " + e.getMessage());
             test.fail("Failed to navigate to URL: " + e.getMessage());
