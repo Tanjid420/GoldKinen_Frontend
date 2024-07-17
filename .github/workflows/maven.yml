@@ -82,10 +82,11 @@ jobs:
 
 
     - name: Clean testReports directory
+      shell: pwsh
       run: |
-        if [ -d "testReports" ]; then
-          rm -rf testReports
-        fi  
+        if (Test-Path "testReports") {
+          Remove-Item -Recurse -Force "testReports"
+        } 
 
     - name: Run Java tests
       run: mvn test -f ./Goldkinen_Regression/goldkinendemo/pom.xml
