@@ -22,13 +22,22 @@ public class HomePageTest {
     @Test
     public void testHomePageLoad(){
 
-        String url = "https://www.youtube.com/";
+        String url_1 = "https://www.youtube.com/";
+        String url_2 = "http://localhost:5173/";
         try {
-            driver.get(url);
+            driver.get(url_1);
+            driver.get(url_2);
             // Optionally, you can print the current URL for verification
             System.out.println("Navigated to: " + driver.getCurrentUrl());
         } catch (Exception e) {
             System.out.println("Failed to navigate to URL: " + e.getMessage());
+        }
+
+        try {
+            driver.get(url_2);
+            System.out.println("Navigated to: " + driver.getCurrentUrl());
+        } catch (Exception e) {
+            System.out.println("Failed to navigate to URL_2: " + e.getMessage());
         }
     }
         
