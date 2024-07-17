@@ -36,6 +36,24 @@
    <scope>compile</scope>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+<dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-testng</artifactId>
+    <version>2.28.0</version>
+</dependency>
+
     </dependencies>
+
+     <build>
+        <plugins>
+            
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
