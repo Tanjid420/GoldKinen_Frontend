@@ -1,3 +1,5 @@
+import java.io.File;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -19,6 +21,15 @@ public class HomePageTest {
 
          @BeforeTest
          public void config(){
+
+
+        // Clean Test Reports    
+             File testReportsDir = new File("testReports");
+        if (testReportsDir.exists()) {
+            for (File file : testReportsDir.listFiles()) {
+                file.delete();
+            }
+        }
             String path = System.getProperty("user.dir") + "\\testReports\\index.html";
             ExtentSparkReporter reporter = new ExtentSparkReporter(path);
                 reporter.config().setReportName("Goldkinen Automation");
