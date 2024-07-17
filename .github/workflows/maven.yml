@@ -81,12 +81,12 @@ jobs:
         CHROME_DRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
 
 
-    - name: Clean testReports directory
-      shell: cmd
-      run: |
-        if exist "testReports" (
-          rmdir /s /q "testReports"
-        )
+    # - name: Clean testReports directory
+    #   shell: cmd
+    #   run: |
+    #     if exist "testReports" (
+    #       rmdir /s /q "testReports"
+    #     )
 
     - name: Run Java tests
       run: mvn test -f ./Goldkinen_Regression/goldkinendemo/pom.xml
@@ -99,7 +99,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: extent-report
-        path: Goldkinen_Regression/goldkinendemo/testReports/index.html
+        path: Goldkinen_Regression/goldkinendemo/testReports
 
      
 
