@@ -22,7 +22,7 @@ public class HomePageTest {
     @Test
     public void testHomePageLoad(){
 
-        String url = "http://localhost:5173";
+        String url = "https://www.google.com/";
         driver.get(url);
         System.out.println("Navigated to: " + driver.getCurrentUrl());
     }
