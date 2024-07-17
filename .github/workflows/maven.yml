@@ -81,6 +81,8 @@ jobs:
 
     - name: Run Java tests
       run: mvn test -f ./Goldkinen_Regression/goldkinendemo/pom.xml
+      env: 
+        CHROME_DRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
 
 
     - name: Upload test results
