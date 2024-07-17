@@ -53,8 +53,16 @@ jobs:
       run: choco install chromedriver -y
  
 
-
-    
+    - name: Find ChromeDriver path
+      id: find-chromedriver-path
+      shell: pwsh
+      run: |
+        $chromeDriverPath = Get-Command chromedriver | Select-Object -ExpandProperty Path
+        Write-Output "Found ChromeDriver at: $chromeDriverPath"
+        echo "CHROMEDRIVER_PATH=$chromeDriverPath" >> $env:GITHUB_ENV
+        
+    - name: Debug Environment Variables
+      run: echo $CHROMEDRIVER_PATH
     
     # - name: Verify ChromeDriver version
     #   run: |
@@ -68,7 +76,7 @@ jobs:
     - name: Install Maven dependencies
       run: mvn install -f ./Goldkinen_Regression/goldkinendemo/pom.xml
       env: 
-        CHROME_DRIVER_PATH: 'C:/ProgramData/chocolatey/lib/chromedriver/tools/chromedriver.exe'
+        CHROME_DRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
       
 
     - name: Run Java tests
