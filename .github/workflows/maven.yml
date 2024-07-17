@@ -48,6 +48,11 @@ jobs:
     # - name: Build with Maven
     #   run: mvn -B package --file pom.xml
 
+    - name: Set up Maven
+      uses: sormuras/setup-maven@v1
+      with:
+        maven-version: '3.9.8'
+
 
     - name: Install ChromeDriver
       run: choco install chromedriver -y
