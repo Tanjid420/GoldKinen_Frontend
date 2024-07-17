@@ -51,7 +51,7 @@ jobs:
     - name: Set up Maven
       uses: sormuras/setup-maven@v1
       with:
-        maven-version: '3.9.8'
+        maven-version: '3.8.8'
 
 
     - name: Install ChromeDriver
