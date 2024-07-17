@@ -26,7 +26,7 @@ public class HomePageTest {
         String url_2 = "http://localhost:5173/";
         try {
             driver.get(url_1);
-            driver.get(url_2);
+            
             // Optionally, you can print the current URL for verification
             System.out.println("Navigated to: " + driver.getCurrentUrl());
         } catch (Exception e) {
