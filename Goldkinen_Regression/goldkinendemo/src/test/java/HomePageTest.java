@@ -22,7 +22,7 @@ public class HomePageTest {
     @Test
     public void testHomePageLoad(){
 
-        String url = "http://localhost:5173/";
+        String url = "https://www.youtube.com/";
         try {
             driver.get(url);
             // Optionally, you can print the current URL for verification
