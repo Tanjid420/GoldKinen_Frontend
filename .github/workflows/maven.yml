@@ -87,11 +87,12 @@ jobs:
         CHROME_DRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
 
 
-    - name: Upload Surefire Reports
+    - name: Upload Extent Reports
+      if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: surefire-reports
-        path: target/surefire-reports/  
+        name: extent-report
+        path: testReports/index.html  
       
         
 
