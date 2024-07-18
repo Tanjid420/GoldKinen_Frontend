@@ -69,6 +69,7 @@ public class HomePageTest {
 
         String youtube = "https://www.youtube.com/";
         String goldkinen = "http://localhost:5173/";
+        String vivasoft = "https://academy.vivasoftltd.com/";
         try {
             driver.get(youtube);
             
@@ -86,6 +87,15 @@ public class HomePageTest {
             test.pass("Navigated to: " + goldkinen);
         } catch (Exception e) {
             System.out.println("Failed to navigate to URL_2: " + e.getMessage());
+            test.fail("Failed to navigate to URL: " + e.getMessage());
+        }
+
+        try {
+            driver.get(vivasoft);
+            System.out.println("Navigated to: " + driver.getCurrentUrl());
+            test.pass("Navigated to: " + vivasoft);
+        } catch (Exception e) {
+            System.out.println("Failed to navigate to Vivasoft: " + e.getMessage());
             test.fail("Failed to navigate to URL: " + e.getMessage());
         }
     }
