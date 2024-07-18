@@ -74,6 +74,7 @@ public class HomePageTest {
             driver.get(youtube);
             
             // Optionally, you can print the current URL for verification
+            System.out.println("Checkin Youtube");
             System.out.println("Navigated to: " + driver.getCurrentUrl());
             test.pass("Navigated to: " + youtube);
         } catch (Exception e) {
@@ -83,6 +84,7 @@ public class HomePageTest {
 
         try {
             driver.get(goldkinen);
+            System.out.println("Checkin Goldkinen");
             System.out.println("Navigated to: " + driver.getCurrentUrl());
             test.pass("Navigated to: " + goldkinen);
         } catch (Exception e) {
@@ -92,6 +94,7 @@ public class HomePageTest {
 
         try {
             driver.get(vivasoft);
+            System.out.println("Checkin Vivasoft");
             System.out.println("Navigated to: " + driver.getCurrentUrl());
             test.pass("Navigated to: " + vivasoft);
         } catch (Exception e) {
