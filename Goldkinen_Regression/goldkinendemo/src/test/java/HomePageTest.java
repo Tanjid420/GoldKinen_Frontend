@@ -88,6 +88,7 @@ public class HomePageTest {
             System.out.println("Navigated to: " + driver.getCurrentUrl());
             test.pass("Navigated to: " + goldkinen);
         } catch (Exception e) {
+            System.out.println("Checkin Goldkinen");
             System.out.println("Failed to navigate to URL_2: " + e.getMessage());
             test.fail("Failed to navigate to URL: " + e.getMessage());
         }
