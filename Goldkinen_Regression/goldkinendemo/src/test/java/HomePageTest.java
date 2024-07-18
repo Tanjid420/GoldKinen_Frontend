@@ -24,12 +24,20 @@ public class HomePageTest {
 
 
         // Clean Test Reports    
-             File testReportsDir = new File("testReports");
-        if (testReportsDir.exists()) {
-            for (File file : testReportsDir.listFiles()) {
-                file.delete();
-            }
+        //      File testReportsDir = new File("testReports");
+        // if (testReportsDir.exists()) {
+        //     for (File file : testReportsDir.listFiles()) {
+        //         file.delete();
+        //     }
+        File testReportsDir = new File("testReports");
+        if (!testReportsDir.exists()) {
+            testReportsDir.mkdir();
         }
+            
+
+
+        // }
+
             String path = System.getProperty("user.dir") + "\\testReports\\index.html";
             ExtentSparkReporter reporter = new ExtentSparkReporter(path);
                 reporter.config().setReportName("Goldkinen Automation");
