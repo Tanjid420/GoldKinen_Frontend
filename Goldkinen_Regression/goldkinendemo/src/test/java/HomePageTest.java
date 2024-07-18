@@ -91,12 +91,10 @@ public class HomePageTest {
     }
     @AfterClass
     public void tearDown() {
-        if (driver != null) {
+        
             driver.quit();
-        }
-        if (extent != null) {
             extent.flush();
-        }
+        
     }
         
     
