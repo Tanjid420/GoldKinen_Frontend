@@ -42,15 +42,15 @@ public class Buffer_and_Crash_Test {
         driver.get("https://dev.mymirakey.com/auth/login");
 
         // Enter email and password
-        WebElement emailInput = driver.findElement(By.xpath("//input[@name = 'email']"));
-        emailInput.sendKeys("arnob@resonian.com");
+        // WebElement emailInput = driver.findElement(By.xpath("//input[@name = 'email']"));
+        // emailInput.sendKeys("");
 
-        WebElement passwordInput = driver.findElement(By.xpath("//input[@name='password']"));
-        passwordInput.sendKeys("jaspershebin420");
+        // WebElement passwordInput = driver.findElement(By.xpath("//input[@name='password']"));
+        // passwordInput.sendKeys("");
 
         // Click the login button
-        WebElement signIn = (new WebDriverWait(driver, Duration.ofSeconds(10))).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='css-r7scqu emmy3ya2']")));
-        signIn.click();
+        // WebElement signIn = (new WebDriverWait(driver, Duration.ofSeconds(10))).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='css-r7scqu emmy3ya2']")));
+        // signIn.click();
 
         // Wait for the login to complete
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
