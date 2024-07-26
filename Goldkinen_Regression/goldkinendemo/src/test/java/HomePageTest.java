@@ -53,11 +53,11 @@ public class HomePageTest {
     public void setup() {
         
         // Set the path to the chromedriver executable
-        String chromeDriverPath = System.getenv("CHROME_DRIVER_PATH");
-        if (chromeDriverPath == null || chromeDriverPath.isEmpty()) {
-            throw new IllegalStateException("CHROME_DRIVER_PATH environment variable is not set or empty");
-        }
-        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+        // String chromeDriverPath = System.getenv("CHROME_DRIVER_PATH");
+        // if (chromeDriverPath == null || chromeDriverPath.isEmpty()) {
+        //     throw new IllegalStateException("CHROME_DRIVER_PATH environment variable is not set or empty");
+        // }
+        System.setProperty("webdriver.chrome.driver", "G:/ChromeDriver/chromedriver-win64/chromedriver.exe");
         driver = new ChromeDriver();
        
     }
