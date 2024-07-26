@@ -76,7 +76,7 @@ jobs:
       #   CHROME_DRIVER_PATH: 'C:\ProgramData\chocolatey\lib\chromedriver\tools/chromedriver.exe'
         
     - name: Install Maven dependencies
-      run: mvn install -f ./Goldkinen_Regression/goldkinendemo/pom.xml
+      run: mvn install -f ./Mirakey/mirakeypos/pom.xml
       env: 
         CHROME_DRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
 
@@ -89,7 +89,7 @@ jobs:
     #     )
 
     - name: Run Java tests
-      run: mvn test -f ./Goldkinen_Regression/goldkinendemo/pom.xml
+      run: mvn test -f ./Mirakey/mirakeypos/pom.xml
       env: 
         CHROME_DRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
 
@@ -99,7 +99,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: extent-report
-        path: Goldkinen_Regression/goldkinendemo/testReports/index.html
+        path: Mirakey/mirakeypos/testReports/index.html
 
      
 
