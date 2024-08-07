@@ -4,16 +4,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
-import org.testng.Reporter;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.Assert;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+// import com.aventstack.extentreports.ExtentReports;
+// import com.aventstack.extentreports.ExtentTest;
+// import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+// import com.aventstack.extentreports.util.Assert;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -21,8 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class Buffer_and_Crash_Test {
 
     WebDriver driver;
-    ExtentReports extent;
-    ExtentTest test;
+    
     
 
 
@@ -58,15 +58,15 @@ public class Buffer_and_Crash_Test {
 
 
         // Test Reports
-        String path = System.getProperty("user.dir") + "\\testReports\\index.html";
-            ExtentSparkReporter reporter = new ExtentSparkReporter(path);
-                reporter.config().setReportName("Mirakey Automation");
-                reporter.config().setDocumentTitle("Test Results");
+        // String path = System.getProperty("user.dir") + "\\testReports\\index.html";
+        //     ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+        //         reporter.config().setReportName("Mirakey Automation");
+        //         reporter.config().setDocumentTitle("Test Results");
         
 
-            extent = new ExtentReports();
-            extent.attachReporter(reporter);
-            extent.setSystemInfo("Tester", "Arnob");
+        //     extent = new ExtentReports();
+        //     extent.attachReporter(reporter);
+        //     extent.setSystemInfo("Tester", "Arnob");
 
 
        
@@ -112,9 +112,9 @@ public class Buffer_and_Crash_Test {
         System.out.println("Testing " + urlName + ": " + url);
 
         // Get the test result object
-        ITestResult result = Reporter.getCurrentTestResult();
+        // ITestResult result = Reporter.getCurrentTestResult();
         // Create a new extent test with the correct test ID and name
-        ExtentTest test = extent.createTest(result.getMethod().getMethodName() + " - " + urlName, "Test URL: " + url);
+        // ExtentTest test = extent.createTest(result.getMethod().getMethodName() + " - " + urlName, "Test URL: " + url);
 
         try {
             // Navigate to the URL
@@ -126,11 +126,11 @@ public class Buffer_and_Crash_Test {
 
             // If the page loads within 2 minutes, log a pass
             System.out.println("Page loaded successfully within 2 minutes");
-            test.pass("Page loaded successfully");
+            
         } catch (Exception e) {
             // If the page does not load within 2 minutes, log a fail
-            System.out.println("Page did not load within 2 minutes: " + e.getMessage());
-            test.fail("Page did not load: " + e.getMessage());
+           Assert.fail("Page did not load within 2 minutes: " + e.getMessage());
+            
         }
     }
 
@@ -139,8 +139,7 @@ public class Buffer_and_Crash_Test {
         // Close the browser
         driver.quit();
 
-        // Flush the Extent Reports
-        extent.flush();
+       
     }
 
 }

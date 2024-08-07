@@ -15,6 +15,9 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
+       
+    
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 <dependency>
@@ -44,5 +47,20 @@
     <version>5.1.2</version>
 </dependency>
     </dependencies>
+
+ <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+            <configuration>
+                <testFailureIgnore>false</testFailureIgnore> <!-- Ensure this is false -->
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+
 
 </project>
