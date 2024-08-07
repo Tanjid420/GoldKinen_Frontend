@@ -45,8 +45,7 @@ jobs:
         java-version: '21.0.3'
         distribution: 'temurin'
         cache: maven
-    # - name: Build with Maven
-    #   run: mvn -B package --file pom.xml
+   
 
     
 
@@ -66,14 +65,7 @@ jobs:
     - name: Debug Environment Variables
       run: echo $CHROMEDRIVER_PATH
     
-    # - name: Verify ChromeDriver version
-    #   run: |
-    #     echo ChromeDriver path: $env:CHROMEDRIVER_PATH
-    #     $env:CHROMEDRIVER_PATH --version
-    
-    
-      # env:
-      #   CHROME_DRIVER_PATH: 'C:\ProgramData\chocolatey\lib\chromedriver\tools/chromedriver.exe'
+  
         
     - name: Install Maven dependencies
       run: mvn install -f ./Mirakey/mirakeypos/pom.xml -DskipTests
@@ -81,12 +73,7 @@ jobs:
         CHROME_DRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
 
 
-    # - name: Clean testReports directory
-    #   shell: cmd
-    #   run: |
-    #     if exist "testReports" (
-    #       rmdir /s /q "testReports"
-    #     )
+   
 
     - name: Run Java tests
       run: mvn test -f ./Mirakey/mirakeypos/pom.xml
@@ -94,20 +81,7 @@ jobs:
         CHROME_DRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
 
 
-    - name: Generate Extent Report
-      run: |
-          # Generate the Extent Report using your Java code
-          java -cp $(Join-Path $pwd 'Mirakey\mirakeypos\target\classes');C:\usr\share\maven\ref\repository\com\aventstack\extentreports\5.1.2\extentreports-5.1.2.jar mirakey.regression.GenerateExtentReport
-          # Move the generated report to the desired location
-          mkdir test-output\ExtentReport
-          move testReports\index.html test-output\ExtentReport\
-
-
-    - name: Upload Extent Reports
-      uses: actions/upload-artifact@v2
-      with:
-        name: extent-report
-        path: Mirakey/mirakeypos/testReports/index.html
+  
 
      
 
