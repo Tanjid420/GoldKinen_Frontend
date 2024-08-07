@@ -91,7 +91,7 @@ public class Buffer_and_Crash_Test {
             {"https://dev.mymirakey.com/reports/sales-report/summary", "Sales Report"},
             {"https://dev.mymirakey.com/reports/sales-inventory/summary", "Inventory Report"},
             {"https://dev.mymirakey.com/reports/sales-customer/summary", "Customer Report"},
-            {"http://nonexistentwebsite.com", "Failed on Purpose"},
+            // {"http://nonexistentwebsite.com", "Failed on Purpose"},
             {"https://dev.mymirakey.com/reports/employee-report/sales", "Employee Report"},
             {"https://dev.mymirakey.com/settings/store/info/store" , "My Store Settings"},
             {"https://dev.mymirakey.com/settings/sales/main/sales", "My Sales Settings"},
@@ -129,6 +129,7 @@ public class Buffer_and_Crash_Test {
             
         } catch (Exception e) {
             // If the page does not load within 2 minutes, log a fail
+           System.out.println("Page did not load within 2 minutes: " + e.getMessage());
            Assert.fail("Page did not load within 2 minutes: " + e.getMessage());
             
         }
