@@ -97,7 +97,7 @@ jobs:
     - name: Generate Extent Report
       run: |
           # Generate the Extent Report using your Java code
-          java -cp.;./Mirakey/mirakeypos/target/classes;/usr/share/maven/ref/repository/com/aventstack/extentreports/5.1.2/extentreports-5.1.2.jar mirakey.regression.GenerateExtentReport
+          java -cp $(Join-Path $pwd 'Mirakey\mirakeypos\target\classes');C:\usr\share\maven\ref\repository\com\aventstack\extentreports\5.1.2\extentreports-5.1.2.jar mirakey.regression.GenerateExtentReport
           # Move the generated report to the desired location
           mkdir test-output\ExtentReport
           move testReports\index.html test-output\ExtentReport\
