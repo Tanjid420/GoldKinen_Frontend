@@ -41,5 +41,5 @@ test('Test login and navigate to a URL', async ({ page }) => {
     await page.pause();
 
     // Log success
-    console.log(`Successfully loadeded the URL: ${url}`);
+    console.log(`Successfully loadededddddddd the URL: ${url}`);
 });
